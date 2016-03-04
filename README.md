@@ -10,12 +10,9 @@ Python script for exporting gemini 2.2-compliant metadata from a csv file to ind
 * See the sample csv file for the correct layout- alternatively change the column mappings in metadata_import.py to match your layout
 * Place your csv file in the input folder
 * Change to the python directory
-* Run python metadata_import.py
+* Count the total number of rows in your CSV including the header row and edit the numrows line (28) in metadata_import_ea.py to match
+* Run python metadata_import_ea.py
 * Your xml files will miraculously appear in the output folder
-
-### To Do ###
-* Abstract out column mappings into a separate config file for easier alteration
-* Deal with ascii errors
 
 ### Who do I talk to? ###
 
