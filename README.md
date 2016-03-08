@@ -6,7 +6,7 @@ Python script for exporting gemini 2.2-compliant metadata from a csv file to ind
 
 * Create a virtual environment in the root directory
 * Activate the virtual environment
-* Install dependencies by running pip install -r requirements,txt
+* Install dependencies by running pip install -r requirements.txt
 * See the sample csv file for the correct layout- alternatively change the column mappings in metadata_import.py to match your layout
 * Place your csv file in the input folder
 * Change to the python directory
@@ -48,8 +48,8 @@ Python script for exporting gemini 2.2-compliant metadata from a csv file to ind
   * Utilities communication
 * West, East, North, South bounding coordinates must be in WGS84 format (lat/lon)
 * Temporal Extent can be a comma-separated list (begin date, end date) but dates must be in form YYYY-MM-DD
-* Data Fromat and Version must come from provided lists of formats and versions
-* Data Quality Info must be one of datset or nonGeographicDataset (case-sensitive)
+* Data Format and Version must come from provided lists of formats and versions
+* Data Quality Info must be one of dataset or nonGeographicDataset (case-sensitive)
 * Inspire theme must come from the INSPIRE Themes Thesaurus in Geonetwork (choose one only)
 
 ### Who do I talk to? ###
