@@ -15,6 +15,7 @@ import owslib
 from owslib.iso import *
 import pyproj
 from decimal import *
+import logging
 
 
 class TestMetadataImport(unittest.TestCase):
@@ -23,6 +24,8 @@ class TestMetadataImport(unittest.TestCase):
         # remove existing output files
         for file in os.listdir('../output/'):
             os.remove('../output/' + file)
+
+        logging.basicConfig(filename='error.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
     
     def testMetadataImport(self):
@@ -82,7 +85,7 @@ class TestMetadataImport(unittest.TestCase):
         # compare the number of rows in the csv (eg 1112) with the number of entries in the list
         self.assertEqual(numrows, len(raw_data), 'Wrong number of rows')
 
-        with open('ea-template-spatial-blank.xml') as gemini:
+        with open('ea-template-spatial-blank-opendata.xml') as gemini:
             doc = minidom.parseString(gemini.read().encode( "utf-8" ))
 
         # create metadata from the first csv entry to begin with
@@ -404,8 +407,8 @@ class TestMetadataImport(unittest.TestCase):
                     test_xml.write(record.toprettyxml(newl="", encoding="utf-8"))
             except:
                 e = sys.exc_info()[1]
-                print "Import failed for entry %s" % data[0]
-                print "Specific error: %s" % e
+                logging.debug("Import failed for entry %s" % data[0])
+                logging.debug("Specific error: %s" % e)
     
     @skip('')
     def testOWSMetadataImport(self):
