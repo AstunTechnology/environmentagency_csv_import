@@ -95,18 +95,18 @@
 					</gmd:identifier>
 				</gmd:CI_Citation>
 			</gmd:citation>
-			<gmd:abstract gco:nilReason="missing">
+			<gmd:abstract>
 				<gco:CharacterString/>
 			</gmd:abstract>
 			<gmd:pointOfContact>
 				<gmd:CI_ResponsibleParty>
-					<gmd:individualName gco:nilReason="missing">
+					<gmd:individualName>
 						<gco:CharacterString/>
 					</gmd:individualName>
 					<gmd:organisationName>
 						<gco:CharacterString></gco:CharacterString>
 					</gmd:organisationName>
-					<gmd:positionName gco:nilReason="missing">
+					<gmd:positionName>
 						<gco:CharacterString/>
 					</gmd:positionName>
 					<gmd:contactInfo>
@@ -404,7 +404,7 @@
 			</gmd:scope>
 			<gmd:lineage>
 				<gmd:LI_Lineage>
-					<gmd:statement gco:nilReason="missing">
+					<gmd:statement>
 						<gco:CharacterString/>
 					</gmd:statement>
 				</gmd:LI_Lineage>

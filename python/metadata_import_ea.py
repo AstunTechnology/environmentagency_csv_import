@@ -1,3 +1,5 @@
+# coding=utf-8
+
 '''
 @author: Brian O'Hare
 '''
@@ -25,7 +27,7 @@ class TestMetadataImport(unittest.TestCase):
     
     def testMetadataImport(self):
         raw_data = []
-        numrows = 11
+        numrows = 557
         with open('../input/metadata.csv') as csvfile:
             reader = csv.reader(csvfile, dialect='excel')
             for columns in reader:
@@ -239,7 +241,7 @@ class TestMetadataImport(unittest.TestCase):
                 dataQualityDescNode = record.createTextNode(dataQuality)
                 dataQualityElement.setAttribute("codeListValue", dataQuality)
                 dataQualityElement.appendChild(dataQualityNode)
-                dataQualityDescElement.appendChild(dataQualityNode)
+                dataQualityDescElement.childNodes[1].appendChild(dataQualityDescNode)
                 print "dataquality: " + dataQuality
                 
                 # add geographic extents - no need to transform as it's in wgs84

@@ -19,7 +19,7 @@ Python script for exporting gemini 2.2-compliant metadata from a csv file to ind
 * Creation Date and Revision Date must be in the form YYYY-MM-DD
 * Descriptive Keywords can be a comma-separated list
 * AfA Element must be one of the following (case-sensitive):
-* Open Data Risk Assessment
+  * Open Data Risk Assessment
   * Not AfA (To be Assessed)
   * Not AfA (To be Assessed with Guidance)
   * AfA (Publication Scheme and Information for Re-Use Register)
@@ -29,23 +29,25 @@ Python script for exporting gemini 2.2-compliant metadata from a csv file to ind
   * Not Applicable - third party dataset
 * AfA Number must be a decimal or 0, not blank
 * Topic Category must be one of the following (case-sensitive), but can be a comma-separated list:
-  * Farming
-  * Biota
-  * Boundaries
-  * Climatology, meteorology, atmosphere
-  * Economy
-  * Elevation
-  * Environment
-  * Geoscientific information
-  * Health
-  * Imagery base maps earth cover
-  * Intelligence military
-  * Inland waters
-  * Location
-  * Oceans
-  * Planning cadastre
-  * Structure
-  * Utilities communication
+  * farming
+  * biota
+  * boundaries
+  * climatologyMeteorologyAtmosphere
+  * economy
+  * elevation
+  * environment
+  * geoscientificInformation
+  * health
+  * imageryBaseMapsEarthCover
+  * intelligenceMilitary
+  * inlandWaters
+  * location
+  * oceans
+  * planningCadastre
+  * society
+  * structure
+  * transportation
+  * utilitiesCommunication
 * West, East, North, South bounding coordinates must be in WGS84 format (lat/lon)
 * Temporal Extent can be a comma-separated list (begin date, end date) but dates must be in form YYYY-MM-DD
 * Data Format and Version must come from provided lists of formats and versions

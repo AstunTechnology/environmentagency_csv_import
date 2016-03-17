@@ -67,5 +67,18 @@ target/
 # pyenv
 .python-version
 
+# specifics
+
+output
+prev_imports
+*.*~
+*.zip
+bin/
+docs/
+include/
+local/
+input/*.*#
+
+
 
 
