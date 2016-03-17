@@ -52,7 +52,10 @@ Python script for exporting gemini 2.2-compliant metadata from a csv file to ind
 * Temporal Extent can be a comma-separated list (begin date, end date) but dates must be in form YYYY-MM-DD
 * Data Format and Version must come from provided lists of formats and versions
 * Data Quality Info must be one of dataset or nonGeographicDataset (case-sensitive)
-* Inspire theme must come from the INSPIRE Themes Thesaurus in Geonetwork (choose one only)
+* Inspire theme (case-sensitive) must come from the INSPIRE Themes Thesaurus in Geonetwork (choose one only)
+* Update Frequency is case-sensitive (lower case)
+* If the record is OpenData, modify the script to use the opendata template, DO NOT include it in the list of keywords
+* The copyright statement should not include the copyright symbol, a correctly encoded version of this will be included automatically
 
 ### Who do I talk to? ###
 

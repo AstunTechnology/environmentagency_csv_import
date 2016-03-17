@@ -127,13 +127,13 @@
 			</gmd:pointOfContact>
 						<gmd:pointOfContact>
 				<gmd:CI_ResponsibleParty>
-					<gmd:individualName gco:nilReason="missing">
+					<gmd:individualName>
 						<gco:CharacterString/>
 					</gmd:individualName>
 					<gmd:organisationName>
 						<gco:CharacterString></gco:CharacterString>
 					</gmd:organisationName>
-					<gmd:positionName gco:nilReason="missing">
+					<gmd:positionName>
 						<gco:CharacterString/>
 					</gmd:positionName>
 					<gmd:contactInfo>
@@ -154,13 +154,13 @@
 			</gmd:pointOfContact>
 			<gmd:pointOfContact>
 				<gmd:CI_ResponsibleParty>
-					<gmd:individualName gco:nilReason="missing">
+					<gmd:individualName>
 						<gco:CharacterString/>
 					</gmd:individualName>
 					<gmd:organisationName>
 						<gco:CharacterString></gco:CharacterString>
 					</gmd:organisationName>
-					<gmd:positionName gco:nilReason="missing">
+					<gmd:positionName>
 						<gco:CharacterString/>
 					</gmd:positionName>
 					<gmd:contactInfo>
@@ -181,13 +181,13 @@
 			</gmd:pointOfContact>
 			<gmd:pointOfContact>
 				<gmd:CI_ResponsibleParty>
-					<gmd:individualName gco:nilReason="missing">
+					<gmd:individualName>
 						<gco:CharacterString/>
 					</gmd:individualName>
 					<gmd:organisationName>
 						<gco:CharacterString></gco:CharacterString>
 					</gmd:organisationName>
-					<gmd:positionName gco:nilReason="missing">
+					<gmd:positionName>
 						<gco:CharacterString/>
 					</gmd:positionName>
 					<gmd:contactInfo>
@@ -366,10 +366,10 @@
 		<gmd:MD_Distribution>
 			<gmd:distributionFormat>
 				<gmd:MD_Format>
-					<gmd:name gco:nilReason="missing">
+					<gmd:name>
 						<gco:CharacterString/>
 					</gmd:name>
-					<gmd:version gco:nilReason="missing">
+					<gmd:version>
 						<gco:CharacterString/>
 					</gmd:version>
 				</gmd:MD_Format>
@@ -381,10 +381,10 @@
 							<gmd:linkage>
 								<gmd:URL/>
 							</gmd:linkage>
-							<gmd:protocol gco:nilReason="missing">
+							<gmd:protocol>
 								<gco:CharacterString/>
 							</gmd:protocol>
-							<gmd:description gco:nilReason="missing">
+							<gmd:description>
 								<gco:CharacterString/>
 							</gmd:description>
 						</gmd:CI_OnlineResource>

@@ -176,7 +176,7 @@ class TestMetadataImport(unittest.TestCase):
                 print "lineage: " + lineage
 
                 # add temporal extent
-                dates = data[33].split(' ')
+                dates = data[33].split(',')
                 beginDate, endDate = '', ''
                 if len(dates) == 2:
                     beginDate = dates[0]
