@@ -30,7 +30,7 @@ class TestMetadataImport(unittest.TestCase):
     
     def testMetadataImport(self):
         raw_data = []
-        numrows = 557
+        numrows = 817
         with open('../input/metadata.csv') as csvfile:
             reader = csv.reader(csvfile, dialect='excel')
             for columns in reader:
@@ -90,7 +90,7 @@ class TestMetadataImport(unittest.TestCase):
 
         # create metadata from the first csv entry to begin with
         # data = raw_data[1]
-        for data in raw_data[1:-1]:
+        for data in raw_data[1:]:
             try:
                 # create a new record from the template
                 record = doc.cloneNode(doc)
