@@ -30,7 +30,7 @@ class TestMetadataImport(unittest.TestCase):
     
     def testMetadataImport(self):
         raw_data = []
-        numrows = 817
+        numrows = 20
         with open('../input/metadata.csv') as csvfile:
             reader = csv.reader(csvfile, dialect='excel')
             for columns in reader:
@@ -157,7 +157,7 @@ class TestMetadataImport(unittest.TestCase):
                 # add free text keywords from comma-separated list
                 keywords = data[21].split(', ')
                 keywordElement = identificationInfo[0].getElementsByTagName('gmd:MD_Keywords')[1]
-                for i, k in enumerate(keywords): 
+                for i, k in enumerate(keywords):
                     print k
                     newkeywordElement = record.createElement('gmd:keyword')
                     newkeywordStringElement = record.createElement('gco:CharacterString')
@@ -203,17 +203,48 @@ class TestMetadataImport(unittest.TestCase):
                 # pubDateNode = record.createTextNode(pubDate)
                 # publicationDateElement.childNodes[1].childNodes[1].childNodes[1].appendChild(pubDateNode)
 
+                # keywords = data[21].split(', ')
+                # keywordElement = identificationInfo[0].getElementsByTagName('gmd:MD_Keywords')[1]
+                # for i, k in enumerate(keywords):
+                #     print k
+                #     newkeywordElement = record.createElement('gmd:keyword')
+                #     newkeywordStringElement = record.createElement('gco:CharacterString')
+                #     newkeywordNode = record.createTextNode(k)
+                #     newkeywordStringElement.appendChild(newkeywordNode)
+                #     newkeywordElement.appendChild(newkeywordStringElement)
+                #     keywordElement.appendChild(newkeywordElement)
+
                 # # add distribution format, version, transfer options
-                distFormat = data[34]
-                version = data[35]
-                distFormatElement = distributionInfo[0].getElementsByTagName('gmd:name')[0]
-                versionFormatElement = distributionInfo[0].getElementsByTagName('gmd:version')[0]
-                distFormatNode = record.createTextNode(distFormat)
-                versionNode = record.createTextNode(version)
-                distFormatElement.childNodes[1].appendChild(distFormatNode)
-                versionFormatElement.childNodes[1].appendChild(versionNode)
-                print "distribution format: " + distFormat
-                print "version: " + version
+                distFormats = data[34].split(',')
+                versions = data[35].split(',')
+                nameElement = distributionInfo[0].getElementsByTagName('gmd:MD_Distribution')[0]
+
+                for i, k in zip(distFormats, versions):
+                    newDistroFormatNode = record.createElement('gmd:distributionFormat')
+                    newMDFormatNode = record.createElement('gmd:MD_Format')
+                    
+                    newDistFormatElement = record.createElement('gmd:name')
+                    newDistFormatStringElement = record.createElement('gco:CharacterString')
+                    newDistFormatNode=record.createTextNode(i)
+                    newDistFormatStringElement.appendChild(newDistFormatNode)
+                    newDistFormatElement.appendChild(newDistFormatStringElement)
+
+                    newMDFormatNode.appendChild(newDistFormatElement)
+                    newDistroFormatNode.appendChild(newMDFormatNode)
+
+                    newVersionElement = record.createElement('gmd:version')
+                    newVersionStringElement = record.createElement('gco:CharacterString')
+                    newVersionNode=record.createTextNode(k)
+                    newVersionStringElement.appendChild(newVersionNode)
+                    newVersionElement.appendChild(newVersionStringElement)
+
+                    newMDFormatNode.appendChild(newVersionElement)
+                    newDistroFormatNode.appendChild(newMDFormatNode)
+
+                    # must be inserted before the transferoptions node
+                    nameElement.insertBefore(newDistroFormatNode, distributionInfo[0].getElementsByTagName('gmd:transferOptions')[0])
+                    
+                    print "Distribution format: " + i + " Version: " + k
 
 
                 # add transfer url
