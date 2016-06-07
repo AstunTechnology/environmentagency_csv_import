@@ -18,7 +18,7 @@ Python script for exporting gemini 2.2-compliant metadata from a csv file to ind
 
 ### Data Specifics ###
 
-* Creation Date and Revision Date must be in the form YYYY-MM-DD
+* Creation Date and Revision Date can be of the form YYYY-MM-DD or DD/MM/YYYY
 * Descriptive Keywords can be a comma-separated list
 * AfA Element must be one of the following (case-sensitive):
   * Open Data Risk Assessment
@@ -51,11 +51,22 @@ Python script for exporting gemini 2.2-compliant metadata from a csv file to ind
   * transportation
   * utilitiesCommunication
 * West, East, North, South bounding coordinates must be in WGS84 format (lat/lon)
-* Temporal Extent can be a comma-separated list (begin date, end date) but dates must be in form YYYY-MM-DD
-* Data Format and Version must come from provided lists of formats and versions
+* Temporal Extent can be a comma-separated list (begin date, end date) but dates must be in form YYYY-MM-DD or DD/MM/YYYY
+* Data Format and Version can be comma-separated lists but must come from provided lists of formats and versions
 * Data Quality Info must be one of dataset or nonGeographicDataset (case-sensitive)
 * Inspire theme (case-sensitive) must come from the INSPIRE Themes Thesaurus in Geonetwork (choose one only)
-* Update Frequency is case-sensitive (lower case)
+* Update Frequency is case-sensitive, choose from the following codes:
+  * continual
+  * daily
+  * weekly
+  * fortnightly
+  * monthly
+  * quarterly
+  * biannually
+  * annually
+  * asNeeded
+  * irregular
+  * notPlanned
 * If the record is OpenData, modify the script to use the opendata template, DO NOT include it in the list of keywords
 * The copyright statement should not include the copyright symbol, a correctly encoded version of this will be included automatically
 

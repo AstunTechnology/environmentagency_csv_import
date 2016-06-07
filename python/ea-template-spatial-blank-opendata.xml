@@ -63,7 +63,7 @@
 					<gmd:title>
 						<gco:CharacterString></gco:CharacterString>
 					</gmd:title>
-					<gmd:alternateTitle gco:nilReason="missing">
+					<gmd:alternateTitle>
 						<gco:CharacterString/>
 					</gmd:alternateTitle>
 					<gmd:date>

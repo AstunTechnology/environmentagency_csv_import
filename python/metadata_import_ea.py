@@ -16,6 +16,7 @@ from owslib.iso import *
 import pyproj
 from decimal import *
 import logging
+import arrow
 
 
 class TestMetadataImport(unittest.TestCase):
@@ -30,7 +31,7 @@ class TestMetadataImport(unittest.TestCase):
     
     def testMetadataImport(self):
         raw_data = []
-        numrows = 20
+        numrows = 793
         with open('../input/metadata.csv') as csvfile:
             reader = csv.reader(csvfile, dialect='excel')
             for columns in reader:
@@ -85,7 +86,7 @@ class TestMetadataImport(unittest.TestCase):
         # compare the number of rows in the csv (eg 1112) with the number of entries in the list
         self.assertEqual(numrows, len(raw_data), 'Wrong number of rows')
 
-        with open('ea-template-spatial-blank-opendata.xml') as gemini:
+        with open('ea-template-spatial-blank.xml') as gemini:
             doc = minidom.parseString(gemini.read().encode( "utf-8" ))
 
         # create metadata from the first csv entry to begin with
@@ -179,8 +180,15 @@ class TestMetadataImport(unittest.TestCase):
                 dates = data[33].split(',')
                 beginDate, endDate = '', ''
                 if len(dates) == 2:
-                    beginDate = dates[0]
-                    endDate = dates[1]
+                    if '/' in data[33]:
+                        beginDate = arrow.get(dates[0],'DD/MM/YYYY').format('YYYY-MM-DD')
+                        endDate = arrow.get(dates[1],'DD/MM/YYYY').format('YYYY-MM-DD')
+                    elif '-' in data[33]:
+                        beginDate = dates[0]
+                        endDate= dates[1]
+                    else:
+                        print "Temp extent dates in wrong format"
+                    
                     print "Beginning date: " + beginDate
                     print "End date: " + endDate
                 else:
@@ -412,13 +420,23 @@ class TestMetadataImport(unittest.TestCase):
                 ownercontactPosElement.childNodes[1].appendChild(ownerContactPositionNode)
 
                 # add dataset reference dates 
-                creationDate = data[2]
+                if '/' in data[2]:
+                    creationDate = arrow.get(data[2],'DD/MM/YYYY').format('YYYY-MM-DD')
+                elif '-' in data[2]:
+                    creationDate = data[2]
+                else:
+                    print "creationdate in wrong format"
                 creationDateElement = identificationInfo[0].getElementsByTagName('gmd:date')[0]
                 creationDateNode = record.createTextNode(creationDate)
                 creationDateElement.childNodes[1].childNodes[1].childNodes[1].appendChild(creationDateNode)
                 print "Creation date:" + creationDate
 
-                revisionDate = data[3]
+                if '/' in data[3]:
+                    revisionDate = arrow.get(data[3],'DD/MM/YYYY').format('YYYY-MM-DD')
+                elif '-' in data[3]:
+                    creationDate = data[3]
+                else:
+                    print "revisiondate in wrong format"
                 revisionDateElement = identificationInfo[0].getElementsByTagName('gmd:date')[2]
                 revisionDateNode = record.createTextNode(revisionDate)
                 revisionDateElement.childNodes[1].childNodes[1].childNodes[1].appendChild(revisionDateNode)
