@@ -52,7 +52,7 @@ Python script for exporting gemini 2.2-compliant metadata from a csv file to ind
   * utilitiesCommunication
 * West, East, North, South bounding coordinates must be in WGS84 format (lat/lon)
 * Temporal Extent can be a comma-separated list (begin date, end date) but dates must be in form YYYY-MM-DD or DD/MM/YYYY
-* Data Format and Version can be comma-separated lists but must come from provided lists of formats and versions
+* Data Format and Version can be comma-separated lists but must come from provided lists of formats and versions, see [iso19139.eamp/loc/eng/labels.xml](https://github.com/AstunTechnology/environmentagency_geonetwork/blob/master/Schema/iso19139.eamp/loc/eng/labels.xml#L1418)
 * Data Quality Info must be one of dataset or nonGeographicDataset (case-sensitive)
 * Inspire theme (case-sensitive) must come from the INSPIRE Themes Thesaurus in Geonetwork (choose one only)
 * Update Frequency is case-sensitive, choose from the following codes:
