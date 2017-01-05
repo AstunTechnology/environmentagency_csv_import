@@ -80,6 +80,7 @@ class TestMetadataImport(unittest.TestCase):
                         lineage = columns[40]
                         update_freq = columns[41]
                         inspire_theme = columns[42]
+                        uuid = columns[43]
                 
                 print "title: " + title
                 """
@@ -109,12 +110,18 @@ class TestMetadataImport(unittest.TestCase):
                 metadataMaintenance = record.getElementsByTagName('gmd:metadataMaintenance')
 
                 # generate and add the fileId
-                fileId = str(uuid.uuid4())
+                # this needs to take into account records that may already have a UUID
+                if data[43]:
+                    fileId = data[43]
+                    print "UUID:" + fileId
+                else:
+                    print "No UUID provided"
+                    fileId = str(uuid.uuid4())
                 fileIdentifier[0].childNodes[1].appendChild(record.createTextNode(fileId))
                 identifierElement = identificationInfo[0].getElementsByTagName('gmd:code')[0]
                 identifierNode = record.createTextNode(fileId)
                 identifierElement.childNodes[1].appendChild(identifierNode)
-                print "ID: " + fileId
+
 
                 # add the title
                 title = data[0]
