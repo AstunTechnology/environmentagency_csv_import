@@ -1,6 +1,6 @@
 # README #
 
-Python script for exporting gemini 2.2-compliant metadata from a csv file to individual xml files.
+Python script for exporting EAMP-compliant metadata from a csv file to individual xml files.
 
 ### How do I get set up? ###
 
