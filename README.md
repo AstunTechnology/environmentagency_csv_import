@@ -1,5 +1,7 @@
 # README #
 
+# THIS REPOSITORY IS ARCHIVED AND NO LONGER UNDER ACTIVE DEVELOPMENT #
+
 Python script for exporting EAMP-compliant metadata from a csv file to individual xml files.
 
 ### How do I get set up? ###
